@@ -74,6 +74,10 @@ $(function() {
     $("#message").blur(function () {
         inputCheck();
     });
+    $("#prefecture").blur(function () {
+        inputCheck();
+    });
+
     $("#agree").blur(function () {
         inputCheck();
     });
@@ -144,7 +148,18 @@ $(function() {
              // エラーなし
              $("#tel").css("background-color", "#fafafa");
             }
-
+            // 都道府県のチェック
+            if($("#prefecture").val() == "") {
+                // エラーあり
+                $("#prefecture").css("background-color", "#f79999");
+                error = true;
+                message += "お住まいの都道府県を選んでください。\n";
+             } else {
+                 // エラーなし
+                 $("#prefecture").css("background-color", "#fafafa");
+                }
+    
+    
             // 個人情報のチェックボックスのチェック
             if ($("#agree").prop("checked") == false) {
                 error = true;
